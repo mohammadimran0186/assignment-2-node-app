@@ -1,0 +1,25 @@
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: nodejs-app
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: nodejs-app
+    template:
+      metadata:
+        labels:
+          app: nodejs-app
+      spec:
+        containers:
+        - name: nodejs-app
+          image: mohammadimran0186/demo-nodejs
+          ports:
+          - containerPort: 3000
+          resources:
+            limits:
+              cpu: "500m"
+
+            requests:
+              cpu: "200m"
